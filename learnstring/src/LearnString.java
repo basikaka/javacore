@@ -150,7 +150,7 @@ public class LearnString {
         System.out.println("信息如下：");
         System.out.println( name + " " + age + " " + sara);
          */
-
+/*
         System.out.println("你年龄：");
         int age1 = insca.nextInt();
         insca.nextLine();
@@ -160,5 +160,50 @@ public class LearnString {
         float sara1 = insca.nextFloat();
         System.out.println("你的信息如下：");
         System.out.println( name_1 + " " + age1 + " " + sara1);
+
+ */
+
+/*
+        //break 中断、跳出for循环结构
+        boolean complete = true;
+        System.out.println("开始体能测试.");
+        for(int i = 1; i<10; i++){
+            System.out.println("你已经跑了"+ i + "圈了。");
+            System.out.println("还要再跑一圈吗？（y/n）");
+            String answer = insca.nextLine();
+            if( answer.equals("n")|| answer.equals("N")){
+                System.out.println("你已经退出了体能测试。");
+                complete = false;
+                break;
+            }
+        }
+        if(complete ){
+            System.out.println("太棒了，你已经完成所有体能测试项目了。");
+        }
+*/
+
+        //continue 测试
+        label1:for (int x = 0; x < 5; x++) {
+            for (int y = 5; y > 0; y--) {
+                //if(y == 1)
+                //    continue label1;
+                System.out.println(x + " " + y);
+            }
+        }
+
+        //pascals triangle
+
+
+        int n, i, j;
+        n = 5;
+        for(i = 0; i<=n; i++){
+            for (j = 0; j <= n - 1; j++) {
+                System.out.print(" ");
+            }
+            for (j = 0; j <= i; j++) {
+                System.out.print(" "+ ncr(i, j));
+            }
+            System.out.println();
+        }
     }
 }
