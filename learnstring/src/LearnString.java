@@ -1,6 +1,7 @@
+import com.sun.scenario.effect.impl.state.LinearConvolveRenderState;
+
 import javax.xml.crypto.Data;
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
 
 public class LearnString {
     public static boolean equals( StringBuffer sb1, StringBuffer sb2){
@@ -60,6 +61,38 @@ public class LearnString {
             System.out.println();
         }
         return 0;
+    }
+
+    static List<List<Integer>> Yhsj(int rows) {
+        List<List<Integer>> res = new ArrayList<>();
+        if( rows == 0) {
+            return res;
+        }
+        List<Integer> firtrow = new ArrayList<>();
+        firtrow.add(1);
+        res.add(firtrow);
+
+        int size = res.size();
+        while ( size < rows) {
+            LinkedList<Integer> first = new LinkedList<>();
+            first.addFirst(0);
+            LinkedList<Integer> second = new LinkedList<>();
+            second.addLast(0);
+
+            for(int i: res.get(size - 1)){
+                first.addFirst(i);
+                second.addLast(i);
+            }
+
+            List<Integer> newRow = new ArrayList<>();
+            for(int n = 0; n <first.size(); n++){
+                newRow.add( first.get(n) + second.get(n));
+            }
+            res.add(newRow);
+            size = res.size();
+
+        }
+        return  res;
     }
 
     public static void main(String []args){
@@ -243,8 +276,16 @@ public class LearnString {
         }
 
         System.out.println("输出多少行杨辉三角：");
-        int row = insca.nextInt();
-        Caculator(row);
+        int rows = insca.nextInt();
+        Caculator(rows);
+
+
+        //利用List结构生成杨辉三角
+        List<List<Integer>> res = Yhsj( rows );
+        System.out.println("List 结构生成杨辉三角： ");
+        for( List<Integer> item : res){
+            System.out.println(item);
+        }
 
     }
 }
