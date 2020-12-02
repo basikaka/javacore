@@ -38,6 +38,30 @@ public class LearnString {
         return factorial(n) / ( factorial(n-r) * factorial(r) );
     }
 
+
+    static int num(int x, int y) {
+        if (y == 0 || y == x) {
+            return 1;
+        }
+        else {
+            int c = num(x-1, y-1) + num(x-1, y);
+            return c;
+        }
+    }
+
+    static int Caculator(int row) {
+        for (int i = 0; i < row; i++) {
+            for(int y=0; y<row - i; y++ ){
+                System.out.print("  ");
+            }
+            for(int j=0; j<=i; j++){
+                System.out.print( num(i, j) + "  ");
+            }
+            System.out.println();
+        }
+        return 0;
+    }
+
     public static void main(String []args){
         String a = "a";
         String b = "b";
@@ -217,5 +241,10 @@ public class LearnString {
             }
             System.out.println();
         }
+
+        System.out.println("输出多少行杨辉三角：");
+        int row = insca.nextInt();
+        Caculator(row);
+
     }
 }
